@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "pkg_techfest_imc/position.h"
+#include "micromouse/position.h"
 #include <tf/tf.h>
 #include <tf/transform_datatypes.h>
 #include <geometry_msgs/Twist.h>
@@ -17,7 +17,7 @@ class controller
     controller(ros::NodeHandle &nh);
 
     void odomCB(const nav_msgs::Odometry::ConstPtr& msg);
-    bool get_position(pkg_techfest_imc::position::Request  &req, pkg_techfest_imc::position::Response &res);
+    bool get_position(micromouse::position::Request  &req, micromouse::position::Response &res);
 
   protected:
 
@@ -110,8 +110,8 @@ void controller::odomCB(const nav_msgs::Odometry::ConstPtr& msg)
   
 }
 
-bool controller::get_position(pkg_techfest_imc::position::Request  &req,
-        pkg_techfest_imc::position::Response &res)
+bool controller::get_position(micromouse::position::Request  &req,
+        micromouse::position::Response &res)
 {
   if(req.x <= 16 && req.y <= 16) 
   {
